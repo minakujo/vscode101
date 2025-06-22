@@ -1,0 +1,111 @@
+/* === Base Setup === */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #ffe6f0;
+  font-family: 'Quicksand', sans-serif;
+  color: #333;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+#myHeader,
+h1, h2, h3 {
+  font-family: 'Quicksand', sans-serif;
+  color: #ff69b4;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.4), 0 0 10px #ffc0cb;
+}
+
+/* === Button Row === */
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  margin-top: 70px;
+}
+
+/* === Heart Button === */
+.heart-button {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: #ff69b4;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  animation: beat 1s infinite;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+  overflow: visible;
+}
+
+/* === Heart lobes === */
+.heart-button::before,
+.heart-button::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: inherit;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.heart-button::before {
+  top: -50px;
+  left: 0;
+}
+
+.heart-button::after {
+  top: 0;
+  left: 50px;
+}
+
+/* === Text Inside Heart === */
+.heart-button span {
+  transform: rotate(45deg) translateY(-17px); /* un-tilt + nudge upward */
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 2;
+  position: relative;
+  pointer-events: none;
+}
+
+/* === Hover & Active === */
+.heart-button:hover,
+.heart-button:hover::before,
+.heart-button:hover::after {
+  background-color: #ff1493;
+}
+
+.heart-button:active,
+.heart-button:active::before,
+.heart-button:active::after {
+  background-color: #c71585;
+}
+
+/* === Beat animation === */
+@keyframes beat {
+  0%, 100% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.1);
+  }
+}
